@@ -8,7 +8,7 @@ pizza = pd.read_csv(r'D:\Business Analyst\projects\pizza_sales.csv')
 #print(pizza.head())
 #print(pizza.info())
 total_revenue = pizza['total_price'].sum()
-total_orders =pizza['order_id'].count()
+total_orders =pizza['order_id'].nunique()
 total_units = pizza['quantity'].sum()
 
 
@@ -38,7 +38,7 @@ after  that i have imported DATETIME as dt and used .day_name() to name day of w
 
 pizza['order_date'] = pd.to_datetime(pizza['order_date'],format="%d-%m-%Y")
 pizza['day'] = pizza['order_date'].dt.day_name()
-dayWise_orders = pizza.groupby('day').count()['order_id'].sort_values(ascending=False)
+dayWise_orders = pizza.groupby('day').nunique()['order_id'].sort_values(ascending=False)
 print(
 )
 print('Days Wise trend in orders.')
@@ -47,13 +47,13 @@ print(dayWise_orders)
 #   Q7. HourWise trend of orders
 '''i could not find correct method. but i tried to manipulate
 order_time clm to get hours. to extract hours i asked to get first
-2 CHAR. consideriing value as string'''
+2 CHAR. consideriing value as string.'''
 
 pizza['order_time'] = pizza['order_time'].str[:2]
 print(
 )
 print("Hour wise trend of orders Suggesting peak and low hours.")
-print(pizza.groupby('order_time').count()['order_id'])
+print(pizza.groupby('order_time').nunique()['order_id'])
 
 #   Q8. %age Revenue by Category
 cat_rev = pizza.groupby('pizza_category').sum('total_price')['total_price']
@@ -99,4 +99,12 @@ print(
 )
 print("Bottom 5 most popular pizza (based on units sold).")
 print(sale_name.sort_values().head())
+
+
+
+
+
+
+
+
 
