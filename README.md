@@ -1,4 +1,4 @@
-Hello visitor. You are welcome to this intresting and insightfull Pizza store analysis.
+Hello visitor. You are welcome to this intresting and insightful Pizza store analysis.
 This repository contains business questions by store owner as well as python and SQL queries solving those questions.
 While doing this porject, i have learnt lot of new functions and techniques.
 Tools and function used,
