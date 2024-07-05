@@ -77,27 +77,17 @@ print("Percentage of total number of pizzas sold by Category.")
 print(round(cat_sale_count*100/total_units,2))
 
 #   Q11. Top 5 Pizza by units sold
-'''PN sales_name here is a SERIES there for .sort_values(ascending=False/True)
-have this argument, because series dont have columns
-whereas, for DF we have .sort_values(by=) here we provide column by which to sort
-.head() is used to get TOP VALUES, 5 is by default how ever you can provide number.
-eg,    .head(10)'''
 sale_name = pizza.groupby('pizza_name').sum('quantity')['quantity']
 print(
 )
-print("Top 5 most popular pizza (based on units sold).")
+print("Top 5 popular pizza (based on units sold).")
 print(sale_name.sort_values(ascending=False).head())
 
 #   Q12. Bottom 5 Pizza by units sold
-'''PN sales_name here is a SERIES there for .sort_values(ascending=False/True)
-have this argument, because series dont have columns
-whereas, for DF we have .sort_values(by=) here we provide column by which to sort
-.head() is used to get TOP VALUES, 5 is by default how ever you can provide number.
-eg,    .head(10)'''
 sale_name = pizza.groupby('pizza_name').sum('quantity')['quantity']
 print(
 )
-print("Bottom 5 most popular pizza (based on units sold).")
+print("Bottom 5 popular pizza (based on units sold).")
 print(sale_name.sort_values().head())
 
 
